@@ -101,7 +101,7 @@
       else: ForcePlate2
     - vector: [$prev.x, $prev.y, $prev.z]
     - lowpass:
-      cutoff: 10
+      cutoff: 100
       extrapolate: 75
 
 # Calculate combined COP for double leg balance (it is assumed that both FPs are loaded)
@@ -129,7 +129,7 @@
       output: grf_sum
     - divide: [temp_sum, [grf_sum, grf_sum, grf_sum]]
     - lowpass:
-      cutoff: 10
+      cutoff: 100
       extrapolate: 75
 
 - parameter: COP_zeroed
@@ -154,7 +154,7 @@
   steps:
     - velocity: COP_zeroed
     - lowpass:
-      cutoff: 6
+      cutoff: 100
       extrapolate: 100
       output: COP_zeroed_vel_filt
     - max:
@@ -170,7 +170,7 @@
   steps:
     - acceleration: COP_zeroed
     - lowpass:
-      cutoff: 6
+      cutoff: 100
       output: COP_zeroed_acc_filt
       extrapolate: 100
     - max:

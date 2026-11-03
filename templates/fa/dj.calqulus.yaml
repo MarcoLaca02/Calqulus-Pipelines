@@ -1394,8 +1394,8 @@
     - divide: [$prev, BodyWeightNewton]
     - negate:
     - lowpass:
-      cutoff: 10
-      extrapolate: 75
+      cutoff: 100
+      extrapolate: 100
 
 - parameter: Total GRF_both
   where:

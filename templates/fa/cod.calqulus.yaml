@@ -218,6 +218,6 @@
       from: mm/s
       to: m/s
     - lowpass:
-      extrapolate: 10
-      cutoff: 12
+      extrapolate: 100
+      cutoff: 100
     - max:
