@@ -77,9 +77,9 @@
   summarize: true
   steps:
     - jointAngle: Hips_model
-      rotationOrder: ZXY
+      rotationOrder: YXZ
       space: VirtualLab
-    - multiply: [$prev, [11, 1, 11]]
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -89,7 +89,7 @@
   summarize: true
   steps:
     - jointAngle: Hips_model
-      rotationOrder: ZXY
+      rotationOrder: YXZ
       space: VirtualLab
     - multiply: [$prev, [1, 1, 1]]
     - lowpass:
@@ -105,7 +105,7 @@
     include: [Plot, Propulsion, PostFlight, LeftPlot, Loading, SquatCycle, TouchDown, Max_knee_flex, TakeOff, END_WA, COM_MIN]
   steps:
     - jointAngle: [Hips_model, LeftUpLeg_model]
-    - multiply: [$prev, [1, 1, 1]]
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -131,7 +131,7 @@
     include: [Plot, Propulsion, PostFlight, LeftPlot, Loading, SquatCycle, TouchDown, Max_knee_flex, TakeOff, END_WA, COM_MIN]
   steps:
     - jointAngle: [LeftUpLeg_model, LeftLeg_model]
-    - multiply: [$prev, [1, 1, 1]]
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -166,7 +166,7 @@
       then: hindfoot_vector
       else: foot_vector
 
-    - multiply: [$prev, [1, 1, 1]]
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate 
@@ -198,7 +198,7 @@
   steps:
     - jointAngle: LeftFoot_model
       space: VirtualLab
-    - multiply: [$prev, [1, 1, 1]]
+    - multiply: [$prev, [-1, 1, 1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -220,7 +220,7 @@
   steps:
     - jointAngle: LeftFoot_model
       space: VirtualLab
-    - multiply: [$prev, [1, 1, 1]]
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -245,7 +245,7 @@
   steps:
     - jointAngle: Spine2_model
       space: VirtualLab
-    - multiply: [$prev, [1,1,1]]
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -268,7 +268,7 @@
     include: [Plot, Propulsion, LeftPlot, Loading, SquatCycle, TouchDown, Max_knee_flex, TakeOff, END_WA, COM_MIN]
   steps:
     - jointAngle: [Hips_model, Spine2_model]
-    - multiply: [$prev, [1, 1, 1]]
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -292,8 +292,8 @@
   steps:
     - angle: [Spine2_model, LeftShoulder_model]
       unwrap: true
-      rotationOrder: ZXY
-    - multiply: [$prev, [1, 1, 1]]
+      rotationOrder: YXZ
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -304,7 +304,7 @@
   steps:
     - angle: [Spine2_model, RightShoulder_model]
       unwrap: true
-      rotationOrder: ZXY
+      rotationOrder: YXZ
     - multiply: [$prev, [1, 1, 1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
@@ -318,7 +318,7 @@
     - angle: [Spine2_model, LeftArm_model]
       unwrap: true
       rotationOrder: XZY #based on Vandana,P. at al. Comparison of Glenohumeral Motion Using Different Rotation Sequences, J Biomech. 2011 Feb 24; 44(4): 700–705. 
-    - multiply: [$prev, [1, 1, 1]]
+    - multiply: [$prev, [1, -1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -355,7 +355,7 @@
   steps:
     - angle: [LeftArm_model, LeftForeArm_model]
       unwrap: true
-    - multiply: [$prev, [1, 1, 1]]
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
@@ -378,7 +378,7 @@
   summarize: true
   steps:
     - angle: [LeftForeArm_model, LeftHand_model]
-    - multiply: [$prev, [1, 1, 1]]
+    - multiply: [$prev, [-1, 1, -1]]
     - lowpass:
       cutoff: KinematicsLowpassCutoffFq
       extrapolate: KinematicsLowpassExtrapolate
